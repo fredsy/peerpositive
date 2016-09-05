@@ -5,13 +5,21 @@ body {
   /* For development only, debugging */
   border: 1px solid blue; }
 
-.site-header {
+.site-branding {
   width: 80%;
   margin: 0 auto;
   text-align: center; }
 
+.menu-front-page-menu-container {
+  text-align: right; }
+  .menu-front-page-menu-container ul {
+    float: right; }
+
 .section h2 {
-  text-align: center; }
+  text-align: center;
+  margin: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0; }
 
 .main-section-full-width-container {
   width: 100%; }
@@ -24,16 +32,17 @@ body {
     display: table-cell;
     vertical-align: middle; }
   .main-section-center .center-graphic {
-    display: table-cell; }
+    display: table-cell;
+    height: auto;
+    width: auto;
+    text-align: center; }
     .main-section-center .center-graphic img {
-      display: inline-block; }
+      vertical-align: bottom;
+      width: 80%; }
 
 .books-section {
   background-color: #19C9E0;
   min-height: 600px; }
-  .books-section h2 {
-    padding: 0;
-    margin: 0; }
   .books-section .book-cover-list {
     width: 80%;
     margin: 0 auto;

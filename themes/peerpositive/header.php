@@ -24,6 +24,12 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'peerpositive' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'peerpositive' ); ?></button>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+		</nav><!-- #site-navigation -->
+		
 		<div class="site-branding">
 
 			<?php
@@ -36,26 +42,31 @@
 			endif; ?>
 
 
-			<nav id="site-navigation" class="main-navigation" role="navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'peerpositive' ); ?></button>
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-			</nav><!-- #site-navigation -->
+
 
 			<?php
 			if ( is_front_page() && is_home() ) : ?>
 				<!-- Original -->
 				<!--
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-title"><a href="<?php // echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php // bloginfo( 'name' ); ?></a></h1>
 				-->
 				<!-- Image Replacement -->
-				<?php dynamic_sidebar('sitelogo-widget'); ?>
+					<div class="sitelogo">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+									<?php dynamic_sidebar('sitelogo-widget'); ?>
+							</a>
+					</div>
 			<?php else : ?>
 				<!-- Original -->
 				<!--
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<p class="site-title"><a href="<?php // echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php // bloginfo( 'name' ); ?></a></p>
 				-->
 				<!-- Image Replacement -->
-				<?php dynamic_sidebar('sitelogo-widget'); ?>
+					<div class="sitelogo">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+									<?php dynamic_sidebar('sitelogo-widget'); ?>
+							</a>
+					</div>
 			<?php
 			endif;
 			?>
