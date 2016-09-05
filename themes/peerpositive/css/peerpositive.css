@@ -1,10 +1,32 @@
 body {
   background-color: #BDF0FF; }
 
-.site-header, .center-graphic {
+.site-header, .main-section-full-width, .main-section-center, .center-graphic, .book-cover-list, .site-footer {
+  /* For development only, debugging */
+  border: 1px solid blue; }
+
+.site-header {
   width: 80%;
-  border: 1px solid blue;
+  margin: 0 auto;
   text-align: center; }
+
+.section h2 {
+  text-align: center; }
+
+.main-section-full-width-container {
+  width: 100%; }
+
+.main-section-center {
+  display: table;
+  width: 80%;
+  margin: 0 auto; }
+  .main-section-center .sidebar {
+    display: table-cell;
+    vertical-align: middle; }
+  .main-section-center .center-graphic {
+    display: table-cell; }
+    .main-section-center .center-graphic img {
+      display: inline-block; }
 
 .books-section {
   background-color: #19C9E0;
@@ -14,11 +36,18 @@ body {
     margin: 0; }
   .books-section .book-cover-list {
     width: 80%;
-    border: 1px solid blue;
+    margin: 0 auto;
     display: table; }
   .books-section .book-cover-image {
     width: 25%;
     display: table-cell;
     text-align: center; }
+
+.aboutus-section {
+  background-color: #E3A809;
+  min-height: 600px; }
+  .aboutus-section .aboutus-section-body {
+    width: 80%;
+    margin: 0 auto; }
 
 /*# sourceMappingURL=peerpositive.css.map */

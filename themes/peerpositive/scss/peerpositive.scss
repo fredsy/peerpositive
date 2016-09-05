@@ -1,6 +1,7 @@
 
 $primary-background-color: #BDF0FF;
 $books-section-background-color: #19C9E0;
+$aboutus-section-background-color: #E3A809;
 
 $content-width: 80%;
 
@@ -8,20 +9,63 @@ body {
     background-color: $primary-background-color;
 }
 
-.site-header, .site-main, .widget-area, .site-footer {
-
+.site-header, .main-section-full-width, .main-section-center, .center-graphic, .book-cover-list, .site-footer {
+    /* For development only, debugging */
+    border: 1px solid blue;
 
 }
 
 
-.site-header, .center-graphic {
+.site-header {
 
     width: $content-width;
 
-    border: 1px solid blue;
+    margin: 0 auto;
+
     text-align: center;
 
 }
+
+.section {
+
+    h2 {
+        text-align: center;
+    }
+
+}
+
+.main-section-full-width-container {
+
+    width: 100%;
+
+}
+
+.main-section-center {
+
+    display: table;
+
+    width: $content-width;
+
+    margin: 0 auto;
+
+    .sidebar {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .center-graphic {
+
+        display: table-cell;
+
+        img {
+            display: inline-block;
+        }
+
+    }
+
+}
+
+
 
 .books-section {
 
@@ -36,11 +80,13 @@ body {
 
     }
 
+
     .book-cover-list {
 
         width: $content-width;
 
-        border: 1px solid blue;
+        margin: 0 auto;
+
         display: table;
 
     }
@@ -49,6 +95,21 @@ body {
         width: 25%;
         display: table-cell;
         text-align: center;
+    }
+
+}
+
+.aboutus-section {
+
+    background-color: $aboutus-section-background-color;
+    min-height: 600px;
+
+    .aboutus-section-body {
+
+        width: $content-width;
+
+        margin: 0 auto;
+
     }
 
 }
