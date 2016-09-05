@@ -2286,3 +2286,7 @@
 [01-Sep-2016 23:15:31 UTC] PHP Notice:  Undefined variable: _menu_item_type in /srv/www/peerpositive/htdocs/wp-content/plugins/wordpress-importer/wordpress-importer.php on line 886
 [01-Sep-2016 23:15:31 UTC] PHP Notice:  Undefined variable: _menu_item_type in /srv/www/peerpositive/htdocs/wp-content/plugins/wordpress-importer/wordpress-importer.php on line 888
 [01-Sep-2016 23:15:31 UTC] PHP Notice:  Undefined variable: _menu_item_type in /srv/www/peerpositive/htdocs/wp-content/plugins/wordpress-importer/wordpress-importer.php on line 890
+[05-Sep-2016 08:05:41 UTC] PHP Parse error:  syntax error, unexpected '.' in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/page-home.php on line 27
+[05-Sep-2016 08:05:54 UTC] PHP Parse error:  syntax error, unexpected '.' in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/page-home.php on line 27
+[05-Sep-2016 08:06:20 UTC] PHP Parse error:  syntax error, unexpected '.' in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/page-home.php on line 27
+[05-Sep-2016 08:06:21 UTC] PHP Parse error:  syntax error, unexpected '.' in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/page-home.php on line 27

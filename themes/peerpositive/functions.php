@@ -95,6 +95,15 @@ function peerpositive_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Site Logo', 'peerpositive' ),
+		'id'            => 'sitelogo-widget',
+		'description'   => esc_html__( 'Add logo image URL here.', 'peerpositive' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'peerpositive_widgets_init' );
 
@@ -103,6 +112,8 @@ add_action( 'widgets_init', 'peerpositive_widgets_init' );
  */
 function peerpositive_scripts() {
 	wp_enqueue_style( 'peerpositive-style', get_stylesheet_uri() );
+
+	wp_enqueue_style( 'peerpositive-custom', get_template_directory_uri() . '/css/peerpositive.css' );
 
 	wp_enqueue_script( 'peerpositive-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

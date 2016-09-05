@@ -1,4 +1,24 @@
 body {
-  color: #333; }
+  background-color: #BDF0FF; }
+
+.site-header, .center-graphic {
+  width: 80%;
+  border: 1px solid blue;
+  text-align: center; }
+
+.books-section {
+  background-color: #19C9E0;
+  min-height: 600px; }
+  .books-section h2 {
+    padding: 0;
+    margin: 0; }
+  .books-section .book-cover-list {
+    width: 80%;
+    border: 1px solid blue;
+    display: table; }
+  .books-section .book-cover-image {
+    width: 25%;
+    display: table-cell;
+    text-align: center; }
 
 /*# sourceMappingURL=peerpositive.css.map */

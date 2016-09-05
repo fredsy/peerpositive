@@ -1,6 +1,54 @@
 
-$primary-background-color: #333;
+$primary-background-color: #BDF0FF;
+$books-section-background-color: #19C9E0;
+
+$content-width: 80%;
 
 body {
-  color: $primary-background-color;
+    background-color: $primary-background-color;
+}
+
+.site-header, .site-main, .widget-area, .site-footer {
+
+
+}
+
+
+.site-header, .center-graphic {
+
+    width: $content-width;
+
+    border: 1px solid blue;
+    text-align: center;
+
+}
+
+.books-section {
+
+
+    background-color: $books-section-background-color;
+    min-height: 600px;
+
+    h2 {
+
+        padding: 0;
+        margin: 0;
+
+    }
+
+    .book-cover-list {
+
+        width: $content-width;
+
+        border: 1px solid blue;
+        display: table;
+
+    }
+
+    .book-cover-image {
+        width: 25%;
+        display: table-cell;
+        text-align: center;
+    }
+
 }
