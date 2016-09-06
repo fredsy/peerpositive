@@ -1,9 +1,14 @@
 body {
   background-color: #BDF0FF; }
 
-.site-header, .main-section-full-width, .main-section-center, .center-graphic, .book-cover-list, .site-footer {
-  /* For development only, debugging */
-  border: 1px solid blue; }
+.site-header, .main-section-full-width, .main-section-center, .center-graphic, .book-cover-list, .site-footer, .menu-button {
+  /* For development only, debugging */ }
+
+.main-navigation {
+  font-family: "Miriam Libre";
+  font-size: 1.0em; }
+  .main-navigation li {
+    padding: 1.0em; }
 
 .site-branding {
   width: 80%;
@@ -17,12 +22,18 @@ body {
 
 .section h2 {
   text-align: center;
-  margin: 0;
+  font-family: "Bungee Shade";
+  font-size: 2.6em;
+  padding: 2em;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0; }
 
 .main-section-full-width-container {
-  width: 100%; }
+  width: 100%;
+  background-image: url("http://peerpositive.dev/wp-content/uploads/2016/09/bg-music-bars.png");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: contain; }
 
 .main-section-center {
   display: table;
@@ -30,7 +41,25 @@ body {
   margin: 0 auto; }
   .main-section-center .sidebar {
     display: table-cell;
-    vertical-align: middle; }
+    vertical-align: middle;
+    width: auto; }
+    .main-section-center .sidebar .menu-button-caption {
+      font-family: "Miriam Libre";
+      font-size: 1.4em;
+      line-height: 0.8em;
+      text-align: center;
+      margin: 0 auto; }
+  .main-section-center .menu-button {
+    min-height: 33%;
+    display: block; }
+  .main-section-center .sidebar-left .menu-button-caption:nth-child(1) {
+    color: #FA0040; }
+  .main-section-center .sidebar-left .menu-button-caption:nth-child(2) {
+    color: #7E00EE; }
+  .main-section-center .sidebar-right .menu-button-caption:nth-child(1) {
+    color: #7E00EE; }
+  .main-section-center .sidebar-right .menu-button-caption:nth-child(2) {
+    color: #FA0040; }
   .main-section-center .center-graphic {
     display: table-cell;
     height: auto;
@@ -38,11 +67,12 @@ body {
     text-align: center; }
     .main-section-center .center-graphic img {
       vertical-align: bottom;
-      width: 80%; }
+      width: 100%; }
 
 .books-section {
   background-color: #19C9E0;
-  min-height: 600px; }
+  min-height: 600px;
+  padding-bottom: 8em; }
   .books-section .book-cover-list {
     width: 80%;
     margin: 0 auto;
@@ -57,6 +87,8 @@ body {
   min-height: 600px; }
   .aboutus-section .aboutus-section-body {
     width: 80%;
+    font-family: "Miriam Libre";
+    font-size: 1.2em;
     margin: 0 auto; }
 
 /*# sourceMappingURL=peerpositive.css.map */

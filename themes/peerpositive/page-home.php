@@ -12,7 +12,20 @@ get_header(); ?>
       <div class="main-section-full-width-container">
           <div class="main-section-center">
               <div class="sidebar-left sidebar">
-                  Left Menu Items
+                  <!-- Left Menu Items -->
+                  <div class="left-container">
+                      <div class="menu-button">
+                          <h3 class="menu-button-caption">peer intervention</h3>
+                          <img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-1-peer-intervention.png" />
+                      </div>
+                      <div class="menu-button">
+                          &nbsp;
+                      </div>
+                      <div class="menu-button">
+                          <img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-3-hotline.png" />
+                          <h3 class="menu-button-caption">hotline - get help</h3>
+                      </div>
+                  </div>
               </div>
 
               <div class="center-graphic">
@@ -20,7 +33,20 @@ get_header(); ?>
               </div>
 
               <div class="sidebar-right sidebar">
-                  Right Menu Items
+                  <!-- Right Menu Items -->
+                  <div class="right-container">
+                      <div class="menu-button">
+                          <h3 class="menu-button-caption">music videos</h3>
+                          <img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-2-music-videos.png" />
+                      </div>
+                      <div class="menu-button">
+                          &nbsp;
+                      </div>
+                      <div class="menu-button">
+                          <img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-4-superpower-pledge.png" />
+                          <h3 class="menu-button-caption">superpower pledge</h3>
+                      </div>
+                  </div>
               </div>
           </div>
       </div>

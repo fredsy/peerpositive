@@ -5,18 +5,38 @@ $aboutus-section-background-color: #E3A809;
 
 $content-width: 80%;
 
-$central-img-width: 80%;
+$central-img-width: 100%;
+
+$header-font: "Bungee Shade";
+$body-font: "Miriam Libre";
+
+$menu-font: "Miriam Libre";  // other option: "Patrick Hand SC"
+$menu-font-size: 1.4em;
+
+$menu-color-one: #FA0040;
+$menu-color-two: #7E00EE;
+
+$background-image: "http://peerpositive.dev/wp-content/uploads/2016/09/bg-music-bars.png";
+
 
 body {
     background-color: $primary-background-color;
 }
 
-.site-header, .main-section-full-width, .main-section-center, .center-graphic, .book-cover-list, .site-footer {
+.site-header, .main-section-full-width, .main-section-center, .center-graphic, .book-cover-list, .site-footer, .menu-button {
     /* For development only, debugging */
-    border: 1px solid blue;
+    // border: 1px solid blue;
 
 }
 
+.main-navigation {
+    font-family: $body-font;
+    font-size: 1.0em;
+
+    li {
+        padding: 1.0em;
+    }
+}
 
 .site-branding {
 
@@ -42,7 +62,10 @@ body {
     h2 {
         text-align: center;
 
-        margin: 0;
+        font-family: $header-font;
+        font-size: 2.6em;
+
+        padding: 2em;
         -webkit-margin-before: 0;
         -webkit-margin-after: 0;
     }
@@ -52,6 +75,11 @@ body {
 .main-section-full-width-container {
 
     width: 100%;
+
+    background-image: url($background-image);
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size: contain;
 
 }
 
@@ -66,6 +94,48 @@ body {
     .sidebar {
         display: table-cell;
         vertical-align: middle;
+
+        width: auto;
+
+        .menu-button-caption {
+
+            font-family: $menu-font;
+            font-size: $menu-font-size;
+
+            line-height: 0.8em;
+
+            text-align: center;
+            margin: 0 auto;
+
+        }
+
+    }
+
+    .menu-button {
+        min-height: 33%;
+        display: block;
+    }
+
+    .sidebar-left {
+
+        .menu-button-caption:nth-child(1) {
+          color: $menu-color-one;
+        }
+
+        .menu-button-caption:nth-child(2) {
+          color: $menu-color-two;
+        }
+    }
+
+    .sidebar-right {
+
+        .menu-button-caption:nth-child(1) {
+          color: $menu-color-two;
+        }
+
+        .menu-button-caption:nth-child(2) {
+          color: $menu-color-one;
+        }
     }
 
     .center-graphic {
@@ -95,6 +165,8 @@ body {
     background-color: $books-section-background-color;
     min-height: 600px;
 
+    padding-bottom: 8em;
+
     .book-cover-list {
 
         width: $content-width;
@@ -121,6 +193,9 @@ body {
     .aboutus-section-body {
 
         width: $content-width;
+
+        font-family: $body-font;
+        font-size: 1.2em;
 
         margin: 0 auto;
 

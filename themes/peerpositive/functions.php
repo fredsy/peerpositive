@@ -115,6 +115,9 @@ function peerpositive_scripts() {
 
 	wp_enqueue_style( 'peerpositive-custom', get_template_directory_uri() . '/css/peerpositive.css' );
 
+	// Google Fonts
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Bungee+Shade|Miriam+Libre|Patrick+Hand+SC' );
+
 	wp_enqueue_script( 'peerpositive-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'peerpositive-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
