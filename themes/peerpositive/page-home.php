@@ -10,7 +10,21 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
       <div class="main-section-full-width-container">
+
+					<!-- Top Menu Items -->
+					<div class="top-container">
+							<div class="menu-button">
+									<img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-menu-placeholder.png" />
+									<h3 class="menu-button-caption">top menu 1</h3>
+							</div>
+							<div class="menu-button">
+									<img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-menu-placeholder.png" />
+									<h3 class="menu-button-caption">top menu 2</h3>
+							</div>
+					</div>
+
           <div class="main-section-center">
+
               <div class="sidebar-left sidebar">
                   <!-- Left Menu Items -->
                   <div class="left-container">
@@ -53,7 +67,7 @@ get_header(); ?>
 
       <div class="books-section section">
 
-          <h2>Books by the Music in Me Foundation</h2>
+          <h2>"Rap" on Reading Books by The Music in Me Foundation International</h2>
 
           <div class="book-cover-list">
 

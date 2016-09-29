@@ -12,6 +12,7 @@ body {
 
 .site-branding {
   width: 80%;
+  min-width: 800px;
   margin: 0 auto;
   text-align: center; }
 
@@ -30,25 +31,45 @@ body {
 
 .main-section-full-width-container {
   width: 100%;
-  background-image: url("http://peerpositive.dev/wp-content/uploads/2016/09/bg-music-bars.png");
+  background-image: url("wp-content/uploads/2016/09/bg-music-bars.png");
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: contain; }
 
+.menu-button-caption {
+  font-family: "Miriam Libre";
+  font-size: 1.4em;
+  line-height: 0.8em;
+  text-align: center;
+  margin: 0 auto; }
+
+.top-container {
+  display: table;
+  width: 80%;
+  min-width: 800px;
+  margin: 0 auto;
+  margin-bottom: -24px; }
+  .top-container .menu-button {
+    display: table-cell;
+    text-align: center;
+    min-height: 33%;
+    width: auto; }
+    .top-container .menu-button img {
+      width: 30%; }
+  .top-container .menu-button-caption:nth-child(1) {
+    color: #FA0040; }
+  .top-container .menu-button-caption:nth-child(2) {
+    color: #7E00EE; }
+
 .main-section-center {
   display: table;
   width: 80%;
+  min-width: 800px;
   margin: 0 auto; }
   .main-section-center .sidebar {
     display: table-cell;
     vertical-align: middle;
     width: auto; }
-    .main-section-center .sidebar .menu-button-caption {
-      font-family: "Miriam Libre";
-      font-size: 1.4em;
-      line-height: 0.8em;
-      text-align: center;
-      margin: 0 auto; }
   .main-section-center .menu-button {
     min-height: 33%;
     display: block; }
@@ -75,6 +96,7 @@ body {
   padding-bottom: 8em; }
   .books-section .book-cover-list {
     width: 80%;
+    min-width: 800px;
     margin: 0 auto;
     display: table; }
   .books-section .book-cover-image {
@@ -87,6 +109,7 @@ body {
   min-height: 600px; }
   .aboutus-section .aboutus-section-body {
     width: 80%;
+    min-width: 800px;
     font-family: "Miriam Libre";
     font-size: 1.2em;
     margin: 0 auto; }
