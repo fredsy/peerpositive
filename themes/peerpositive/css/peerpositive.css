@@ -16,6 +16,11 @@ body {
   margin: 0 auto;
   text-align: center; }
 
+.menu-button img:hover {
+  -moz-box-shadow: 0 0 5px #fff;
+  -webkit-box-shadow: 0 0 5px #fff;
+  box-shadow: 0px 0px 5px #fff; }
+
 .menu-front-page-menu-container {
   text-align: right; }
   .menu-front-page-menu-container ul {
@@ -23,7 +28,7 @@ body {
 
 .section h2 {
   text-align: center;
-  font-family: "Bungee Shade";
+  font-family: "Covered By Your Grace";
   font-size: 2.6em;
   padding: 2em;
   -webkit-margin-before: 0;
@@ -37,8 +42,8 @@ body {
   background-size: contain; }
 
 .menu-button-caption {
-  font-family: "Miriam Libre";
-  font-size: 1.4em;
+  font-family: "Covered By Your Grace";
+  font-size: 1.8em;
   line-height: 0.8em;
   text-align: center;
   margin: 0 auto; }
@@ -48,7 +53,7 @@ body {
   width: 80%;
   min-width: 800px;
   margin: 0 auto;
-  margin-bottom: -24px; }
+  margin-bottom: -32px; }
   .top-container .menu-button {
     display: table-cell;
     text-align: center;

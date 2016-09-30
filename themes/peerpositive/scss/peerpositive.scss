@@ -8,11 +8,11 @@ $content-min-width: 800px;
 
 $central-img-width: 100%;
 
-$header-font: "Bungee Shade";
+$header-font: "Covered By Your Grace";
 $body-font: "Miriam Libre";
 
-$menu-font: "Miriam Libre";  // other option: "Patrick Hand SC"
-$menu-font-size: 1.4em;
+$menu-font: "Covered By Your Grace";  // other option: "Patrick Hand SC"
+$menu-font-size: 1.8em;
 
 $menu-color-one: #FA0040;
 $menu-color-two: #7E00EE;
@@ -47,6 +47,14 @@ body {
     margin: 0 auto;
 
     text-align: center;
+
+}
+
+.menu-button img:hover {
+
+    -moz-box-shadow: 0 0 5px #fff;
+    -webkit-box-shadow: 0 0 5px #fff;
+    box-shadow: 0px 0px 5px #fff;
 
 }
 
@@ -105,7 +113,7 @@ body {
   min-width: $content-min-width;
 
   margin: 0 auto;
-  margin-bottom: -24px;
+  margin-bottom: -32px;
 
   .menu-button {
 

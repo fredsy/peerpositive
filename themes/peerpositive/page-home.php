@@ -15,11 +15,11 @@ get_header(); ?>
 					<div class="top-container">
 							<div class="menu-button">
 									<img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-menu-placeholder.png" />
-									<h3 class="menu-button-caption">top menu 1</h3>
+									<h3 class="menu-button-caption">Safe Social Media Moves</h3>
 							</div>
 							<div class="menu-button">
 									<img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-menu-placeholder.png" />
-									<h3 class="menu-button-caption">top menu 2</h3>
+									<h3 class="menu-button-caption">In This Together</h3>
 							</div>
 					</div>
 
@@ -29,15 +29,16 @@ get_header(); ?>
                   <!-- Left Menu Items -->
                   <div class="left-container">
                       <div class="menu-button">
-                          <h3 class="menu-button-caption">peer intervention</h3>
+
                           <img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-1-peer-intervention.png" />
+													<h3 class="menu-button-caption">Games &amp; Activities</h3>
                       </div>
                       <div class="menu-button">
                           &nbsp;
                       </div>
                       <div class="menu-button">
                           <img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-3-hotline.png" />
-                          <h3 class="menu-button-caption">hotline - get help</h3>
+                          <h3 class="menu-button-caption">Hotline - Get Help</h3>
                       </div>
                   </div>
               </div>
@@ -50,15 +51,16 @@ get_header(); ?>
                   <!-- Right Menu Items -->
                   <div class="right-container">
                       <div class="menu-button">
-                          <h3 class="menu-button-caption">music videos</h3>
+
                           <img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-2-music-videos.png" />
+													<h3 class="menu-button-caption">Music Videos</h3>
                       </div>
                       <div class="menu-button">
                           &nbsp;
                       </div>
                       <div class="menu-button">
                           <img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-4-superpower-pledge.png" />
-                          <h3 class="menu-button-caption">superpower pledge</h3>
+                          <h3 class="menu-button-caption">Superpower Pledge</h3>
                       </div>
                   </div>
               </div>
