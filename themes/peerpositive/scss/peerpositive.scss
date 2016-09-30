@@ -50,13 +50,6 @@ body {
 
 }
 
-.menu-button img:hover {
-
-    -moz-box-shadow: 0 0 5px #fff;
-    -webkit-box-shadow: 0 0 5px #fff;
-    box-shadow: 0px 0px 5px #fff;
-
-}
 
 .menu-front-page-menu-container {
 
@@ -65,6 +58,7 @@ body {
     ul {
         float: right;
     }
+
 }
 
 .section {
@@ -90,6 +84,31 @@ body {
     background-repeat: repeat-x;
     background-position: bottom;
     background-size: contain;
+
+    .menu-button a:link,
+    .menu-button a:visited {
+
+      text-decoration: none;
+    }
+
+    .menu-button img {
+        /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+        -webkit-border-radius: 50%;
+
+        /* Firefox 1-3.6 */
+        -moz-border-radius: 50%;
+
+        /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+        border-radius: 50%;
+    }
+
+    .menu-button img:hover {
+
+        -moz-box-shadow: 0 0 16px 12px #fff;
+        -webkit-box-shadow: 0 0 16px 12px #fff;
+        box-shadow: 0px 0px 16px 12px #fff;
+
+    }
 
 }
 
