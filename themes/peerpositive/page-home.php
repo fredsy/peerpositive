@@ -15,14 +15,34 @@ get_header(); ?>
 					<div class="top-container">
 							<div class="menu-button">
 									<a href="#">
-											<img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-5b-musicinme.png" alt="Safe Social Media Moves"/>
+											<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2016/09/button-5b-musicinme.png" alt="Safe Social Media Moves"/>
+
+											<?php if(pll_current_language() == 'en') { ?>
 											<h3 class="menu-button-caption">Safe Social Media Moves</h3>
+											<?php } ?>
+											<?php if(pll_current_language() == 'es') { ?>
+											<h3 class="menu-button-caption">Safe Social Media (espanol)</h3>
+											<?php } ?>
 									</a>
 							</div>
+
+							<!--
+							<div class="translate-options">
+									<?php // dynamic_sidebar('polylang-translate-widget'); ?>
+							</div>
+							-->
+
 							<div class="menu-button">
 									<a href="#">
-											<img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-6b-kids-dancing.png" alt="In This Together" />
+											<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2016/09/button-6b-kids-dancing.png" alt="In This Together" />
+
+											<?php if(pll_current_language() == 'en') { ?>
 											<h3 class="menu-button-caption">In This Together</h3>
+											<?php } ?>
+											<?php if(pll_current_language() == 'es') { ?>
+											<h3 class="menu-button-caption">In This Together (espanol)</h3>
+											<?php } ?>
+
 									</a>
 							</div>
 					</div>
@@ -34,8 +54,14 @@ get_header(); ?>
                   <div class="left-container">
                       <div class="menu-button">
 													<a href="#">
-                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-1b-sparkle.png" alt="Games &amp; Activities"/>
+                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2016/09/button-1b-sparkle.png" alt="Games &amp; Activities"/>
+
+															<?php if(pll_current_language() == 'en') { ?>
 															<h3 class="menu-button-caption">Games &amp; Activities</h3>
+															<?php } ?>
+															<?php if(pll_current_language() == 'es') { ?>
+															<h3 class="menu-button-caption">Games &amp; Activities (espanol)</h3>
+															<?php } ?>
 													</a>
                       </div>
                       <div class="menu-button">
@@ -43,15 +69,21 @@ get_header(); ?>
                       </div>
                       <div class="menu-button">
 													<a href="#">
-                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-3b-bullyblues.png" alt="Hotline - Get Help" />
-                          		<h3 class="menu-button-caption">Hotline - Get Help</h3>
+                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2016/09/button-3b-bullyblues.png" alt="Hotline - Get Help" />
+
+															<?php if(pll_current_language() == 'en') { ?>
+															<h3 class="menu-button-caption">Hotline - Get Help</h3>
+															<?php } ?>
+															<?php if(pll_current_language() == 'es') { ?>
+															<h3 class="menu-button-caption">Hotline - Get Help (espanol)</h3>
+															<?php } ?>
 													</a>
                       </div>
                   </div>
               </div>
 
               <div class="center-graphic">
-                  <img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/UnleashYourSuperpowers-BG.png" />
+                  <img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2016/09/UnleashYourSuperpowers-BG.png" />
               </div>
 
               <div class="sidebar-right sidebar">
@@ -59,8 +91,9 @@ get_header(); ?>
                   <div class="right-container">
                       <div class="menu-button">
 													<a href="#">
-                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-2b-musicman.png" alt="Music Videos"/>
+                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2016/09/button-2b-musicman.png" alt="Music Videos"/>
 															<h3 class="menu-button-caption">Music Videos</h3>
+
 													</a>
                       </div>
                       <div class="menu-button">
@@ -68,7 +101,7 @@ get_header(); ?>
                       </div>
                       <div class="menu-button">
 													<a href="#" onclick="return false">
-                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/2016/09/button-4b-superpower-pledge.png" alt="Superpower Pledges"/>
+                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2016/09/button-4b-superpower-pledge.png" alt="Superpower Pledges"/>
                           		<h3 class="menu-button-caption">Superpower Pledge</h3>
 													</a>
                       </div>
@@ -76,6 +109,45 @@ get_header(); ?>
               </div>
           </div>
       </div>
+
+			<div class="intro-text-section section">
+
+          <!-- What is Bullying? -->
+
+					<div class="intro-text">
+
+					    <?php
+
+								if (function_exists('pll_current_language')){
+										if(pll_current_language() == 'en') {
+		              			$intro_text_query = new WP_Query( array (
+										        'pagename'      => 'what-is-bullying',
+												) );
+		            		};
+		            		if(pll_current_language() == 'es') {
+		              			$intro_text_query = new WP_Query( array (
+										        'pagename'      => 'que-es-el-acoso',
+												) );
+		            		};
+								}
+
+					      // The Loop
+					      if ( $intro_text_query->have_posts() ) {
+					        while ( $intro_text_query->have_posts() ) {
+					          $intro_text_query->the_post();
+					          echo the_content();
+										// $the_page_content = get_the_content();
+										// echo get_content_with_formatting($the_page_content);
+					        }
+					        echo '</ul>';
+					      } else {
+					        // no posts found
+					      }
+					    ?>
+
+					</div> <!-- end of "intro-text" -->
+
+      </div> <!-- end of "intro-text-section" -->
 
       <div class="books-section section">
 

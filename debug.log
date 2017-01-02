@@ -2290,3 +2290,15 @@
 [05-Sep-2016 08:05:54 UTC] PHP Parse error:  syntax error, unexpected '.' in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/page-home.php on line 27
 [05-Sep-2016 08:06:20 UTC] PHP Parse error:  syntax error, unexpected '.' in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/page-home.php on line 27
 [05-Sep-2016 08:06:21 UTC] PHP Parse error:  syntax error, unexpected '.' in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/page-home.php on line 27
+[02-Jan-2017 09:37:40 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/page-home.php on line 123
+[02-Jan-2017 10:28:29 UTC] PHP Parse error:  syntax error, unexpected ']', expecting ',' or ')' in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/functions.php on line 146
+[02-Jan-2017 10:28:43 UTC] PHP Parse error:  syntax error, unexpected ']', expecting ',' or ')' in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/functions.php on line 146
+[02-Jan-2017 10:30:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_content_with_formatting() in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/page-home.php:138
+Stack trace:
+#0 /srv/www/peerpositive/htdocs/wp-includes/template-loader.php(75): include()
+#1 /srv/www/peerpositive/htdocs/wp-blog-header.php(19): require_once('/srv/www/peerpo...')
+#2 /srv/www/peerpositive/htdocs/index.php(17): require('/srv/www/peerpo...')
+#3 {main}
+  thrown in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/page-home.php on line 138
+[02-Jan-2017 10:30:58 UTC] PHP Parse error:  syntax error, unexpected ']', expecting ',' or ')' in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/functions.php on line 87
+[02-Jan-2017 10:32:31 UTC] PHP Parse error:  syntax error, unexpected ']', expecting ',' or ')' in /srv/www/peerpositive/htdocs/wp-content/themes/peerpositive/functions.php on line 87

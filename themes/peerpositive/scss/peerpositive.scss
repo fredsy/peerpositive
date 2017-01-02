@@ -3,21 +3,25 @@ $primary-background-color: #BDF0FF;
 $books-section-background-color: #19C9E0;
 $aboutus-section-background-color: #E3A809;
 
-$content-width: 80%;
+$content-width: 70%;
 $content-min-width: 800px;
 
-$central-img-width: 100%;
+$central-img-width: 85%;
 
 $header-font: "Covered By Your Grace";
 $body-font: "Miriam Libre";
 
 $menu-font: "Covered By Your Grace";  // other option: "Patrick Hand SC"
-$menu-font-size: 1.8em;
+$menu-font-size: 1.6em;
+
+$language-select-font: "Covered By Your Grace";
+$language-select-font-size: 1.4em;
+$language-select-font-color: #19C9E0;
 
 $menu-color-one: #FA0040;
 $menu-color-two: #7E00EE;
 
-$background-image: "wp-content/uploads/2016/09/bg-music-bars.png";
+$background-image: "/wp-content/uploads/2016/09/bg-music-bars.png";
 
 
 body {
@@ -48,6 +52,12 @@ body {
 
     text-align: center;
 
+    .site-logo {
+
+      width: 50%;
+      margin: 0 auto;
+    }
+
 }
 
 
@@ -69,7 +79,7 @@ body {
         font-family: $header-font;
         font-size: 2.6em;
 
-        padding: 2em;
+        padding: 1em;
         -webkit-margin-before: 0;
         -webkit-margin-after: 0;
     }
@@ -134,6 +144,29 @@ body {
   margin: 0 auto;
   margin-bottom: -32px;
 
+  .translate-options {
+
+    display: table-cell;
+
+    vertical-align: top;
+    text-align: center;
+
+    border: 1px solid black;
+
+    a {
+      text-decoration: none;
+      font-family: $language-select-font;
+      font-size: $language-select-font-size;
+      color: $language-select-font-color;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   .menu-button {
 
       display: table-cell;
@@ -144,7 +177,7 @@ body {
 
       img {
 
-          width: 30%;
+          width: 25%;
 
       }
 
@@ -157,6 +190,7 @@ body {
   .menu-button-caption:nth-child(2) {
     color: $menu-color-two;
   }
+
 }
 
 .main-section-center {
@@ -179,6 +213,13 @@ body {
     .menu-button {
         min-height: 33%;
         display: block;
+        text-align: center;
+
+        img {
+
+          width: 80%;
+        }
+
     }
 
     .sidebar-left {
@@ -223,6 +264,27 @@ body {
 }
 
 
+
+.intro-text-section {
+
+    background-color: $aboutus-section-background-color;
+    min-height: 600px;
+    margin-bottom: -29px;
+    padding-bottom: 100px;
+
+    .intro-text {
+
+        width: $content-width;
+        min-width: $content-min-width;
+
+        font-family: $body-font;
+        font-size: 1.2em;
+
+        margin: 0 auto;
+
+    }
+
+}
 
 .books-section {
 

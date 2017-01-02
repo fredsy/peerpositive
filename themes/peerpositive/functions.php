@@ -80,6 +80,7 @@ function peerpositive_content_width() {
 }
 add_action( 'after_setup_theme', 'peerpositive_content_width', 0 );
 
+
 /**
  * Register widget area.
  *
@@ -99,6 +100,16 @@ function peerpositive_widgets_init() {
 		'name'          => esc_html__( 'Site Logo', 'peerpositive' ),
 		'id'            => 'sitelogo-widget',
 		'description'   => esc_html__( 'Add logo image URL here.', 'peerpositive' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Language Switcher', 'peerpositive' ),
+		'id'            => 'polylang-translate-widget',
+		'description'   => esc_html__( 'Container for Polylang language selection widget.', 'peerpositive' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -127,6 +138,9 @@ function peerpositive_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'peerpositive_scripts' );
+
+
+
 
 /**
  * Implement the Custom Header feature.

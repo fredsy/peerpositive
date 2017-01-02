@@ -28,8 +28,11 @@
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'peerpositive' ); ?></button>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+
+				<?php dynamic_sidebar('polylang-translate-widget'); ?>
+
 		</nav><!-- #site-navigation -->
-		
+
 		<div class="site-branding">
 
 			<?php
@@ -62,7 +65,7 @@
 				<p class="site-title"><a href="<?php // echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php // bloginfo( 'name' ); ?></a></p>
 				-->
 				<!-- Image Replacement -->
-					<div class="sitelogo">
+					<div class="site-logo">
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 									<?php dynamic_sidebar('sitelogo-widget'); ?>
 							</a>
