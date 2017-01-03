@@ -37,6 +37,7 @@ class Ai1wm_Cron {
 	public static function add( $hook, $recurrence, $args = array() ) {
 		$args      = array_slice( func_get_args(), 2 );
 		$schedules = wp_get_schedules();
+
 		if ( isset( $schedules[$recurrence] ) && ( $current = $schedules[$recurrence] ) ) {
 			return wp_schedule_event( time() + $current['interval'], $recurrence, $hook, $args );
 		}

@@ -28,17 +28,14 @@ class Ai1wm_Import_Content {
 	public static function execute( $params ) {
 
 		// Read blogs.json file
-		$handle = fopen( ai1wm_blogs_path( $params ), 'r' );
-		if ( $handle === false ) {
-			throw new Ai1wm_Import_Exception( 'Unable to read blogs.json file' );
-		}
+		$handle = ai1wm_open( ai1wm_blogs_path( $params ), 'r' );
 
 		// Parse blogs.json file
-		$blogs = fread( $handle, filesize( ai1wm_blogs_path( $params ) ) );
-		$blogs = json_decode( $blogs );
+		$blogs = ai1wm_read( $handle, filesize( ai1wm_blogs_path( $params ) ) );
+		$blogs = json_decode( $blogs, true );
 
 		// Close handle
-		fclose( $handle );
+		ai1wm_close( $handle );
 
 		// Set content offset
 		if ( isset( $params['content_offset'] ) ) {
@@ -48,7 +45,7 @@ class Ai1wm_Import_Content {
 		}
 
 		// Set archive offset
-		if ( isset( $params['archive_offset']) ) {
+		if ( isset( $params['archive_offset'] ) ) {
 			$archive_offset = (int) $params['archive_offset'];
 		} else {
 			$archive_offset = 0;
@@ -86,9 +83,6 @@ class Ai1wm_Import_Content {
 		// Start time
 		$start = microtime( true );
 
-		// Flag to hold if all files have been processed
-		$completed = true;
-
 		// Open the archive file for reading
 		$archive = new Ai1wm_Extractor( ai1wm_archive_path( $params ) );
 
@@ -100,22 +94,47 @@ class Ai1wm_Import_Content {
 
 		// Set extract paths
 		foreach ( $blogs as $blog ) {
-			if ( defined( 'UPLOADBLOGSDIR' ) ) {
-				// Old sites dir style
-				$old_paths[] = ai1wm_files_path( $blog->Old->Id );
-				$new_paths[] = ai1wm_files_path( $blogs->New->Id );
+			if ( ai1wm_main_site( $blog['Old']['BlogID'] ) === false ) {
+				if ( defined( 'UPLOADBLOGSDIR' ) ) {
+					// Old sites dir style
+					$old_paths[] = ai1wm_files_path( $blog['Old']['BlogID'] );
+					$new_paths[] = ai1wm_files_path( $blog['New']['BlogID'] );
 
-				// New sites dir style
-				$old_paths[] = ai1wm_sites_path( $blog->Old->Id );
-				$new_paths[] = ai1wm_files_path( $blog->New->Id );
-			} else {
-				// Old sites dir style
-				$old_paths[] = ai1wm_files_path( $blog->Old->Id );
-				$new_paths[] = ai1wm_sites_path( $blog->New->Id );
+					// New sites dir style
+					$old_paths[] = ai1wm_sites_path( $blog['Old']['BlogID'] );
+					$new_paths[] = ai1wm_files_path( $blog['New']['BlogID'] );
+				} else {
+					// Old sites dir style
+					$old_paths[] = ai1wm_files_path( $blog['Old']['BlogID'] );
+					$new_paths[] = ai1wm_sites_path( $blog['New']['BlogID'] );
 
-				// New sites dir style
-				$old_paths[] = ai1wm_sites_path( $blog->Old->Id );
-				$new_paths[] = ai1wm_sites_path( $blog->New->Id );
+					// New sites dir style
+					$old_paths[] = ai1wm_sites_path( $blog['Old']['BlogID'] );
+					$new_paths[] = ai1wm_sites_path( $blog['New']['BlogID'] );
+				}
+			}
+		}
+
+		// Set base site extract paths (should be added at the end of arrays)
+		foreach ( $blogs as $blog ) {
+			if ( ai1wm_main_site( $blog['Old']['BlogID'] ) === true ) {
+				if ( defined( 'UPLOADBLOGSDIR' ) ) {
+					// Old sites dir style
+					$old_paths[] = ai1wm_files_path( $blog['Old']['BlogID'] );
+					$new_paths[] = ai1wm_files_path( $blog['New']['BlogID'] );
+
+					// New sites dir style
+					$old_paths[] = ai1wm_sites_path( $blog['Old']['BlogID'] );
+					$new_paths[] = ai1wm_files_path( $blog['New']['BlogID'] );
+				} else {
+					// Old sites dir style
+					$old_paths[] = ai1wm_files_path( $blog['Old']['BlogID'] );
+					$new_paths[] = ai1wm_sites_path( $blog['New']['BlogID'] );
+
+					// New sites dir style
+					$old_paths[] = ai1wm_sites_path( $blog['Old']['BlogID'] );
+					$new_paths[] = ai1wm_sites_path( $blog['New']['BlogID'] );
+				}
 			}
 		}
 
@@ -134,10 +153,10 @@ class Ai1wm_Import_Content {
 				) );
 
 				// Extract a file from archive to WP_CONTENT_DIR
-				if ( ( $content_offset = $archive->extract_one_file_to( WP_CONTENT_DIR, $exclude_files, $old_paths, $new_paths, $content_offset, 10 ) ) ) {
+				if ( ( $current_offset = $archive->extract_one_file_to( WP_CONTENT_DIR, $exclude_files, $old_paths, $new_paths, $content_offset, 10 ) ) ) {
 
-					// Set progress
-					if ( ( $processed += $content_offset ) ) {
+					// What percent of files have we processed?
+					if ( ( $processed += ( $current_offset - $content_offset ) ) ) {
 						$progress = (int) ( ( $processed / $total_size ) * 100 );
 					}
 
@@ -145,18 +164,14 @@ class Ai1wm_Import_Content {
 					Ai1wm_Status::info( sprintf( __( 'Restoring %d files...<br />%d%% complete', AI1WM_PLUGIN_NAME ), $total_files, $progress ) );
 
 					// Set content offset
-					$params['content_offset'] = $content_offset;
+					$content_offset = $current_offset;
 
-					// Set archive offset
-					$params['archive_offset'] = $archive_offset;
+					break;
+				}
 
-					// Set completed flag
-					$params['completed'] = false;
-
-					// Close the archive file
-					$archive->close();
-
-					return $params;
+				// Increment processed files
+				if ( empty( $content_offset ) ) {
+					$processed += $archive->get_current_filesize();
 				}
 
 				// Set content offset
@@ -165,31 +180,47 @@ class Ai1wm_Import_Content {
 				// Set archive offset
 				$archive_offset = $archive->get_file_pointer();
 
+			} catch ( Ai1wm_Quota_Exceeded_Exception $e ) {
+				throw new Exception( 'Out of disk space.' );
 			} catch ( Exception $e ) {
 				// Skip bad file permissions
 			}
 
-			// Increment processed files
-			$processed += $archive->get_current_filesize();
-
 			// More than 10 seconds have passed, break and do another request
 			if ( ( microtime( true ) - $start ) > 10 ) {
-				$completed = false;
 				break;
 			}
 		}
 
-		// Set content offset
-		$params['content_offset'] = $content_offset;
+		// End of the archive?
+		if ( $archive->has_reached_eof() ) {
 
-		// Set archive offset
-		$params['archive_offset'] = $archive_offset;
+			// Unset content offset
+			unset( $params['content_offset'] );
 
-		// Set processed files
-		$params['processed'] = $processed;
+			// Unset archive offset
+			unset( $params['archive_offset'] );
 
-		// Set completed flag
-		$params['completed'] = $completed;
+			// Unset processed files
+			unset( $params['processed'] );
+
+			// Unset completed flag
+			unset( $params['completed'] );
+
+		} else {
+
+			// Set content offset
+			$params['content_offset'] = $content_offset;
+
+			// Set archive offset
+			$params['archive_offset'] = $archive_offset;
+
+			// Set processed files
+			$params['processed'] = $processed;
+
+			// Set completed flag
+			$params['completed'] = false;
+		}
 
 		// Close the archive file
 		$archive->close();

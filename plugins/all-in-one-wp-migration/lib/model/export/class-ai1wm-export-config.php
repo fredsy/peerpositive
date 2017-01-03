@@ -38,37 +38,44 @@ class Ai1wm_Export_Config {
 		$options = wp_load_alloptions();
 
 		// Set config
-		$config = new Ai1wm_Config;
+		$config = array();
 
-		// Set Site URL
+		// Set site URL
 		if ( isset( $options['siteurl'] ) ) {
-			$config->SiteURL = untrailingslashit( $options['siteurl'] );
+			$config['SiteURL'] = untrailingslashit( $options['siteurl'] );
 		} else {
-			$config->SiteURL = site_url();
+			$config['SiteURL'] = site_url();
 		}
 
-		// Set Home URL
+		// Set home URL
 		if ( isset( $options['home'] ) ) {
-			$config->HomeURL = untrailingslashit( $options['home'] );
+			$config['HomeURL'] = untrailingslashit( $options['home'] );
 		} else {
-			$config->HomeURL = home_url();
+			$config['HomeURL'] = home_url();
 		}
 
-		// Set Plugin Version
-		$config->Plugin = (object) array( 'Version' => AI1WM_VERSION );
+		// Set plugin version
+		$config['Plugin'] = array( 'Version' => AI1WM_VERSION );
 
-		// Set WordPress Version and Content
-		$config->WordPress = (object) array( 'Version' => $wp_version, 'Content' => WP_CONTENT_DIR );
+		// Set active plugins
+		if ( isset( $params['options']['no_plugins'] ) ) {
+			$config['Plugins'] = array();
+		} else {
+			$config['Plugins'] = array_values( array_diff( ai1wm_active_plugins(), ai1wm_active_servmask_plugins() ) );
+		}
 
-		// Set No Replace Email
+		// Set WordPress version and content
+		$config['WordPress'] = array( 'Version' => $wp_version, 'Content' => WP_CONTENT_DIR );
+
+		// Set no replace email
 		if ( isset( $params['options']['no_email_replace'] ) ) {
-			$config->NoEmailReplace = true;
+			$config['NoEmailReplace'] = true;
 		}
 
 		// Save package.json file
-		$handle = fopen( ai1wm_package_path( $params ), 'w' );
-		fwrite( $handle, json_encode( $config ) );
-		fclose( $handle );
+		$handle = ai1wm_open( ai1wm_package_path( $params ), 'w' );
+		ai1wm_write( $handle, json_encode( $config ) );
+		ai1wm_close( $handle );
 
 		// Add package.json file
 		$archive = new Ai1wm_Compressor( ai1wm_archive_path( $params ) );

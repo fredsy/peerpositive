@@ -2,8 +2,8 @@
 Contributors: yani.iliev, bangelov, pimjitsawang
 Tags: db migration, migration, wordpress migration, db backup, db restore, website backup, website restore, website migration, website deploy, wordpress deploy, db backup, database export, database serialization, database find replace
 Requires at least: 3.3
-Tested up to: 4.6
-Stable tag: 5.50
+Tested up to: 4.7
+Stable tag: 6.38
 License: GPLv2 or later
 
 All-in-One WP Migration is the only tool that you will ever need to migrate a WordPress site.
@@ -78,6 +78,46 @@ All in One WP Plugin is the first plugin to offer true mobile experience on Word
 3. Plugin Menu
 
 == Changelog ==
+= 6.38 =
+* Add support for HyperDB plugin
+* Add support for RevSlider plugin
+* Check available disk space during export/import
+* Support very restricted hosting environments
+* Add wpress mime-type to web.config when the server is IIS
+* Switch to AJAX from cURL on export/import
+* Respect WordPress constants FS_CHMOD_DIR and FS_CHMOD_FILE on import
+* Fix an issue related to generating archive and folder names
+* Fix an issue related to CSS styles on export page
+* Remove misleading available disk space information on "Backups" page
+
+= 5.56 =
+* Fix an issue with WP_Hook class introcuded in WP 4.7
+
+= 5.55 =
+* Fix an issue with resolving URL on export/import when using non-blocking streams client
+
+= 5.54 =
+* Fix an issue with resolving URL on export/import
+
+= 5.53 =
+* Send HTTP basic authorization header on upload (fetch method)
+* Add Accept-Encoding, Accept-Charset and Accept-Language on export/import
+* Do not replace already replaced values on database import/export
+* Set silent mode when activating sidewide plugins
+* Replace old media style URLs with the new media style URLs on database import
+* Replace user_level and capabilities user meta keys if tables have empty prefix on export
+* Create separate action for extracting must-use plugins
+* Add option "Do not export must-use plugins" in advanced settings
+* Fix an issue with SSL that produces "Unable to resolve URL..."
+
+= 5.52 =
+* Simplify the text on import page
+* Fix an issue with special characters on export and import
+* Fix an issue with export and import of large files
+
+= 5.51 =
+* Add support for utf8mb4_unicode_520_ci database collation
+
 = 5.50 =
 * Improve database export process
 * Simplify export and import cron

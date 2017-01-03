@@ -62,12 +62,27 @@ class Ai1wm_Export_Controller {
 		}
 
 		// Get hook
-		if ( isset( $wp_filter['ai1wm_export'] ) && ( $filters = $wp_filter['ai1wm_export'] ) && ksort( $filters ) ) {
+		if ( isset( $wp_filter['ai1wm_export'] ) && ( $filters = $wp_filter['ai1wm_export'] ) ) {
+			// WordPress 4.7 introduces new class for working with filters/actions called WP_Hook
+			// which adds another level of abstraction and we need to address it.
+			if ( is_object( $filters ) ) {
+				$filters = current( $filters );
+			}
+
+			ksort( $filters );
+
+			// Loop over filters
 			while ( $hooks = current( $filters ) ) {
-				if ( $priority == key( $filters ) ) {
-					foreach ( $hooks as  $hook ) {
+				if ( $priority === key( $filters ) ) {
+					foreach ( $hooks as $hook ) {
 						try {
+
+							// Run function hook
 							$params = call_user_func_array( $hook['function'], array( $params ) );
+
+							// Log request
+							Ai1wm_Log::export( $params );
+
 						} catch ( Exception $e ) {
 							Ai1wm_Status::error( $e->getMessage(), __( 'Unable to export', AI1WM_PLUGIN_NAME ) );
 							exit;
@@ -80,13 +95,13 @@ class Ai1wm_Export_Controller {
 						$completed = (bool) $params['completed'];
 					}
 
-					// Log request
-					if ( empty( $params['priority'] ) || is_file( ai1wm_export_path( $params ) ) ) {
-						Ai1wm_Log::export( $params );
-					}
-
 					// Do request
 					if ( $completed === false || ( $next = next( $filters ) ) && ( $params['priority'] = key( $filters ) ) ) {
+						if ( isset( $params['ai1wm_manual_export'] ) ) {
+							echo json_encode( $params );
+							exit;
+						}
+
 						return Ai1wm_Http::get( admin_url( 'admin-ajax.php?action=ai1wm_export' ), $params );
 					}
 				}
