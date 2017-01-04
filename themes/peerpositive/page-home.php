@@ -15,7 +15,7 @@ get_header(); ?>
 					<div class="top-container">
 							<div class="menu-button">
 									<a href="#">
-											<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2013/03/button-5b-musicinme.png" alt="Safe Social Media Moves"/>
+											<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2017/01/button-5b-musicinme.png" alt="Safe Social Media Moves"/>
 
 											<?php if(pll_current_language() == 'en') { ?>
 											<h3 class="menu-button-caption">Safe Social Media Moves</h3>
@@ -34,7 +34,7 @@ get_header(); ?>
 
 							<div class="menu-button">
 									<a href="#">
-											<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2013/03/button-6b-kids-dancing.png" alt="In This Together" />
+											<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2017/01/button-6b-kids-dancing.png" alt="In This Together" />
 
 											<?php if(pll_current_language() == 'en') { ?>
 											<h3 class="menu-button-caption">In This Together</h3>
@@ -54,7 +54,7 @@ get_header(); ?>
                   <div class="left-container">
                       <div class="menu-button">
 													<a href="#">
-                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2013/03/button-1b-sparkle.png" alt="Games &amp; Activities"/>
+                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2017/01/button-1b-sparkle.png" alt="Games &amp; Activities"/>
 
 															<?php if(pll_current_language() == 'en') { ?>
 															<h3 class="menu-button-caption">Games &amp; Activities</h3>
@@ -69,7 +69,7 @@ get_header(); ?>
                       </div>
                       <div class="menu-button">
 													<a href="#">
-                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2013/03/button-3b-bullyblues.png" alt="Hotline - Get Help" />
+                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2017/01/button-3b-bullyblues.png" alt="Hotline - Get Help" />
 
 															<?php if(pll_current_language() == 'en') { ?>
 															<h3 class="menu-button-caption">Hotline - Get Help</h3>
@@ -83,7 +83,7 @@ get_header(); ?>
               </div>
 
               <div class="center-graphic">
-                  <img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2013/03/UnleashYourSuperpowers-BG.png" />
+                  <img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2017/01/UnleashYourSuperpowers-BG.png" />
               </div>
 
               <div class="sidebar-right sidebar">
@@ -91,7 +91,7 @@ get_header(); ?>
                   <div class="right-container">
                       <div class="menu-button">
 													<a href="#">
-                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2013/03/button-2b-musicman.png" alt="Music Videos"/>
+                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2017/01/button-2b-musicman.png" alt="Music Videos"/>
 															<h3 class="menu-button-caption">Music Videos</h3>
 
 													</a>
@@ -101,7 +101,7 @@ get_header(); ?>
                       </div>
                       <div class="menu-button">
 													<a href="#" onclick="return false">
-                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2013/03/button-4b-superpower-pledge.png" alt="Superpower Pledges"/>
+                          		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2017/01/button-4b-superpower-pledge.png" alt="Superpower Pledges"/>
                           		<h3 class="menu-button-caption">Superpower Pledge</h3>
 													</a>
                       </div>
