@@ -83,7 +83,7 @@ get_header(); ?>
               </div>
 
               <div class="center-graphic">
-                  <img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2017/01/UnleashYourSuperpowers-BG.png" />
+                  <img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2016/09/UnleashYourSuperpowers-BG.png" />
               </div>
 
               <div class="sidebar-right sidebar">
