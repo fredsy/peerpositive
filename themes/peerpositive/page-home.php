@@ -199,19 +199,19 @@ get_header(); ?>
 
       </div> <!-- end of "aboutus-section" -->
 
-			<div class="aboutus-section section">
+			<div class="statistics-section section">
 
           <h2>About the Music in Me Foundation</h2>
 
           <div class="statistics-section-body">
 
               <?php
-                $aboutus_section_query = new WP_Query( 'pagename=some-staggering-statistics' );
+                $statistics_section_query = new WP_Query( 'pagename=some-staggering-statistics' );
 
                 // The Loop
-                if ( $aboutus_section_query->have_posts() ) {
-                  while ( $aboutus_section_query->have_posts() ) {
-                    $aboutus_section_query->the_post();
+                if ( $statistics_section_query->have_posts() ) {
+                  while ( $statistics_section_query->have_posts() ) {
+                    $statistics_section_query->the_post();
                     echo get_the_content();
                   }
                   echo '</ul>';
