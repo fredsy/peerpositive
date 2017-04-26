@@ -53,7 +53,7 @@ get_header(); ?>
                   <!-- Left Menu Items -->
                   <div class="left-container">
                       <div class="menu-button">
-													<a href="#">
+													<a href="games-and-activities">
                           		<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2017/01/button-1b-sparkle.png" alt="Games &amp; Activities"/>
 
 															<?php if(pll_current_language() == 'en') { ?>
@@ -149,6 +149,45 @@ get_header(); ?>
 
       </div> <!-- end of "intro-text-section" -->
 
+			<div class="staggering-statistics-section section">
+
+          <!-- What is Bullying? -->
+
+					<div class="staggering-statistics-text">
+
+					    <?php
+
+								if (function_exists('pll_current_language')){
+										if(pll_current_language() == 'en') {
+		              			$staggering_statistics_query = new WP_Query( array (
+										        'pagename'      => 'some-staggering-statistics',
+												) );
+		            		};
+		            		if(pll_current_language() == 'es') {
+		              			$staggering_statistics_query = new WP_Query( array (
+										        'pagename'      => 'algunas-estadisticas-asombrosas',
+												) );
+		            		};
+								}
+
+					      // The Loop
+					      if ( $staggering_statistics_query->have_posts() ) {
+					        while ( $staggering_statistics_query->have_posts() ) {
+					          $staggering_statistics_query->the_post();
+					          echo the_content();
+										// $the_page_content = get_the_content();
+										// echo get_content_with_formatting($the_page_content);
+					        }
+					        echo '</ul>';
+					      } else {
+					        // no posts found
+					      }
+					    ?>
+
+					</div> <!-- end of "intro-text" -->
+
+      </div> <!-- end of "intro-text-section" -->
+
       <div class="books-section section">
 
           <h2>"Rap" on Reading Books by The Music in Me Foundation International</h2>
@@ -187,31 +226,6 @@ get_header(); ?>
                 if ( $aboutus_section_query->have_posts() ) {
                   while ( $aboutus_section_query->have_posts() ) {
                     $aboutus_section_query->the_post();
-                    echo get_the_content();
-                  }
-                  echo '</ul>';
-                } else {
-                  // no posts found
-                }
-              ?>
-
-          </div> <!-- end of "aboutus-section-body" -->
-
-      </div> <!-- end of "aboutus-section" -->
-
-			<div class="statistics-section section">
-
-          <h2>About the Music in Me Foundation</h2>
-
-          <div class="statistics-section-body">
-
-              <?php
-                $statistics_section_query = new WP_Query( 'pagename=some-staggering-statistics' );
-
-                // The Loop
-                if ( $statistics_section_query->have_posts() ) {
-                  while ( $statistics_section_query->have_posts() ) {
-                    $statistics_section_query->the_post();
                     echo get_the_content();
                   }
                   echo '</ul>';
