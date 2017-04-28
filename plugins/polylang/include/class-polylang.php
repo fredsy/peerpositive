@@ -11,7 +11,7 @@ if ( ! defined( 'PLL_LOCAL_DIR' ) ) {
 
 // includes local config file if exists
 if ( file_exists( PLL_LOCAL_DIR . '/pll-config.php' ) ) {
-	include_once( PLL_LOCAL_DIR . '/pll-config.php' );
+	include_once PLL_LOCAL_DIR . '/pll-config.php';
 }
 
 /**
@@ -27,7 +27,7 @@ class Polylang {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		require_once( PLL_INC . '/functions-wpcom-vip.php' ); // VIP functions
+		require_once PLL_INC . '/functions-wpcom-vip.php'; // VIP functions
 		spl_autoload_register( array( $this, 'autoload' ) ); // autoload classes
 
 		$install = new PLL_Install( POLYLANG_BASENAME );
@@ -84,7 +84,7 @@ class Polylang {
 
 		foreach ( $dirs as $dir ) {
 			if ( file_exists( $file = "$dir/$class.php" ) ) {
-				require_once( $file );
+				require_once $file;
 				return;
 			}
 		}
@@ -97,16 +97,6 @@ class Polylang {
 	 * @since 1.6
 	 */
 	static public function define_constants() {
-		// our url. Don't use WP_PLUGIN_URL http://wordpress.org/support/topic/ssl-doesnt-work-properly
-		if ( ! defined( 'POLYLANG_URL' ) ) {
-			define( 'POLYLANG_URL', plugins_url( '', POLYLANG_FILE ) );
-		}
-
-		// default url to access user data such as custom flags
-		if ( ! defined( 'PLL_LOCAL_URL' ) ) {
-			define( 'PLL_LOCAL_URL', content_url( '/polylang' ) );
-		}
-
 		// cookie name. no cookie will be used if set to false
 		if ( ! defined( 'PLL_COOKIE' ) ) {
 			define( 'PLL_COOKIE', 'pll_language' );
@@ -127,7 +117,7 @@ class Polylang {
 
 		// settings page whatever the tab
 		if ( ! defined( 'PLL_SETTINGS' ) ) {
-			define( 'PLL_SETTINGS', is_admin() && ( ( isset( $_GET['page'] ) && 'mlang' == $_GET['page'] ) || ! empty( $_REQUEST['pll_ajax_settings'] ) ) );
+			define( 'PLL_SETTINGS', is_admin() && ( ( isset( $_GET['page'] ) && 0 === strpos( $_GET['page'], 'mlang' ) ) || ! empty( $_REQUEST['pll_ajax_settings'] ) ) );
 		}
 	}
 
@@ -197,7 +187,7 @@ class Polylang {
 			 */
 			do_action_ref_array( 'pll_pre_init', array( &$polylang ) );
 
-			require_once( PLL_INC.'/api.php' ); // loads the API
+			require_once PLL_INC.'/api.php'; // loads the API
 
 			if ( ! defined( 'PLL_WPML_COMPAT' ) || PLL_WPML_COMPAT ) {
 				PLL_WPML_Compat::instance(); // WPML API

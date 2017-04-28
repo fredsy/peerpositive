@@ -151,7 +151,7 @@ get_header(); ?>
 
 			<div class="staggering-statistics-section section">
 
-          <!-- What is Bullying? -->
+          <!-- Some Staggering Statistics -->
 
 					<div class="staggering-statistics-text">
 
@@ -184,9 +184,50 @@ get_header(); ?>
 					      }
 					    ?>
 
-					</div> <!-- end of "intro-text" -->
+					</div> <!-- end of "staggering-statistics-text" -->
 
-      </div> <!-- end of "intro-text-section" -->
+      </div> <!-- end of "staggering-statistics-section" -->
+
+
+			<div class="stop-bullying-section section">
+
+					<!-- How to Stop Bullying Section -->
+
+					<div class="stop-bullying-text">
+
+							<?php
+
+								if (function_exists('pll_current_language')){
+										if(pll_current_language() == 'en') {
+												$stop_bullying_query = new WP_Query( array (
+														'pagename'      => 'how-to-stop-bullying',
+												) );
+										};
+										if(pll_current_language() == 'es') {
+												$stop_bullying_query = new WP_Query( array (
+														'pagename'      => 'como-detener-el-acoso',
+												) );
+										};
+								}
+
+								// The Loop
+								if ( $stop_bullying_query->have_posts() ) {
+									while ( $stop_bullying_query->have_posts() ) {
+										$stop_bullying_query->the_post();
+										echo the_content();
+										// $the_page_content = get_the_content();
+										// echo get_content_with_formatting($the_page_content);
+									}
+									echo '</ul>';
+								} else {
+									// no posts found
+								}
+							?>
+
+					</div> <!-- end of "stop-bullying-text" -->
+
+			</div> <!-- end of "stop-bullying-section" -->
+
 
       <div class="books-section section">
 
